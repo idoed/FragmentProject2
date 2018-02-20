@@ -21,26 +21,27 @@ public class SupportPanel {
 //        return instance;
 //    }
 
-
     public SupportPanel(int mNum1, int mNum2) {
         this.num1 = mNum1;
         this.num2 = mNum2;
     }
+
     //Creating new Employee's and put them in Arraylist According to their Level.
     public void settingUpEmployers(){
         mEmployeesLevel1=new ArrayList<>();
         mEmployeesLevel2=new ArrayList<>();
-        //Setting the Level 1 Employees
+        //Setting the level 1 Employees
         for ( i = 0; i <num1 ; i++) {
-            Employee employee=new Employee(1,i,true);
+            Employee employee=new Employee(1,true);
             mEmployeesLevel1.add(employee);
-        }
+        }//Setting the level 2 Employees
         for (int j = 0; j <num2 ; j++) {
-            Employee employee=new Employee(2,i,true);
+            Employee employee=new Employee(2,true);
             i++;
             mEmployeesLevel2.add(employee);
         }
-        mManager=new Employee(3,i,true);
+        //Setting the Manager
+        mManager=new Employee(3,true);
     }
     /**
      * Getting new Call and put it in our Array.
@@ -68,11 +69,14 @@ public class SupportPanel {
                 employee.setAvailable(false);
                 //setting the Employee as busy
                 mEmployeesLevel1.set(j, employee);
-                //If the User Solved The Problem
+                /**If the User Solve The Problem i call the methods-
                 // call.setSolve(true);
                 //employee.setAvailable(true);
+                 and if not i still need to make the employee available
                 //else
                 // employee.setAvailable(true);
+                 */
+
                 j = mEmployeesLevel1.size();
                 //Exit from the For Loop and Prepare the Level2 Support Array;
             }
@@ -89,7 +93,7 @@ public class SupportPanel {
                 if(employee.getAvailable()){
                     employee.setAvailable(false);
                     mEmployeesLevel2.set(j,employee);
-                  /**If the user solve the Problem i call the methood-
+                  /**If the user solve the Problem i call the methods-
                     // call.setSolve(true);
                     //employee.setAvailable(true);
                     //else
